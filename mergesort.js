@@ -9,6 +9,11 @@ function mergeSort(arr){
     //merge sort right
     let arrRight = mergeSort(arr.slice(arr.length/2 , arr.length));
 
+  
+    return merge(arrLeft, arrRight);
+}
+
+function merge(arrLeft, arrRight){
     // merge the left and right
     let sortedArr = [];
     let i=0;
@@ -35,8 +40,9 @@ function mergeSort(arr){
         sortedArr.push(arrRight[j]);
         j++;
     }
+
     return sortedArr;
 }
-
-const inputArr = [3, 2, 1, 13, 8, 5, 0, 1];
+// const inputArr = [3, 2, 1, 13, 8, 5, 0, 1];
+const inputArr = [2,4,3,1]
 console.log(mergeSort(inputArr));
