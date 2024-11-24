@@ -1,7 +1,5 @@
 const readline = require("readline-sync");
 
-// Sample fibonacci for input 8 :  o,1,1,2,3,5,8,13
-
 //iterative fibonacci  
 function fibs(num){
     fibArr = [0,1];
@@ -14,6 +12,32 @@ function fibs(num){
     }
     return fibArr;
 }
-let num = Number(readline.question("Enter number : "));
-console.log(fibs(num));
+// console.log(fibs(Number(readline.question("Enter number : "))));
 
+
+//recursive fibonacci to calculate nth fibonacci (this has  O(2^n) time complexity)
+function fibsRec(n){
+    if ( n === 0 ) return 0;
+	if ( n === 1 ) return 1;
+    return fibsRec(n-1)+fibsRec(n-2);
+}
+// console.log(fibsRec(Number(readline.question("Enter number : "))));
+
+
+//recursive fibonacci returning fibonacci array (This implementation has O(n) time complexity)
+function fibsRecArr(n) {
+    if (n <= 0) return [];
+    if (n === 1) return [0];
+    if (n === 2) return [0, 1];
+    let arr = fibsRecArr(n-1);
+    arr.push(arr[arr.length-1]+arr[arr.length-2])
+    return arr;
+}
+console.log(fibsRecArr(Number(readline.question("Enter number : "))));
+
+// testcases
+// console.log(fibsRecArr(0));  // should return []
+// console.log(fibsRecArr(1));  // should return [0]
+// console.log(fibsRecArr(2));  // should return [0, 1]
+// console.log(fibsRecArr(5));  // should return [0, 1, 1, 2, 3]
+// console.log(fibsRecArr(8));  // should return [0, 1, 1, 2, 3, 5, 8, 13]
