@@ -33,9 +33,23 @@ function fibsRecArr(n) {
     arr.push(arr[arr.length-1]+arr[arr.length-2])
     return arr;
 }
-console.log(fibsRecArr(Number(readline.question("Enter number : "))));
+// console.log(fibsRecArr(Number(readline.question("Enter number : "))));
 
-// testcases
+
+
+//get userInput
+const choice = Number(readline.question("Do you want to test Iterative or Recursive fibonacci function?(1/2) : "));
+const getNum = () => Number(readline.question("Enter number : "));
+switch(choice){
+    case 1: console.log(fibs(getNum()));
+            break;
+    case 2: console.log(fibsRecArr(getNum()));
+            break;
+    default: console.log("Enter proper choice!")
+}
+
+
+// testcases for reference
 // console.log(fibsRecArr(0));  // should return []
 // console.log(fibsRecArr(1));  // should return [0]
 // console.log(fibsRecArr(2));  // should return [0, 1]
